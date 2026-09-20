@@ -1,57 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import 'pages/navigation.dart';
-import 'pages/telemetry.dart';
-import 'pages/settings.dart';
+import '../main.dart';
+import 'navigation.dart';
+import 'telemetry.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "My E-Bike",
-          style: GoogleFonts.kodchasan(
-            color: Colors.white,
-            fontSize: 30,
-            fontWeight: FontWeight.w100,
-          ),
-        ),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 27, 31, 59),
-          ),
-        ),
-      ),
-
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(color: const Color.fromARGB(255, 27, 31, 59)),
-          ),
-        ],
-      ),
-
+      appBar: AppBar(title: const Text("Settings")),
+      body: const Center(child: Text("Settings Page")),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 30),
         child: Row(
@@ -59,7 +19,7 @@ class HomePage extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(builder: (context) => const HomePage()),
                 );
