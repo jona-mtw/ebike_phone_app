@@ -24,7 +24,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+      home: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          body: const TabBarView(
+            children: [
+              HomePage(),
+              NavigationPage(),
+              TelemetryPage(),
+              SettingsPage(),
+            ],
+          ),
+          bottomNavigationBar: CustomButtomNavigationBar(),
+        ),
+      ),
     );
   }
 }
@@ -97,8 +110,6 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-
-          bottomNavigationBar: CustomButtomNavigationBar(),
         ),
       ),
     );
@@ -157,53 +168,14 @@ class CustomButtomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 8, bottom: 30),
-        child: Row(
-          mainAxisAlignment: .spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
-              },
-              icon: Icon(Icons.home, size: 30),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const NavigationPage(),
-                  ),
-                );
-              },
-              icon: Icon(Icons.navigation_rounded, size: 30),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const TelemetryPage(),
-                  ),
-                );
-              },
-              icon: Icon(Icons.insert_chart, size: 30),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SettingsPage()),
-                );
-              },
-              icon: Icon(Icons.settings, size: 30),
-            ),
-          ],
-        ),
+      padding: EdgeInsets.only(bottom: 30, top: 10),
+      child: TabBar(
+        tabs: [
+          Tab(icon: Icon(Icons.home, size: 30)),
+          Tab(icon: Icon(Icons.navigation_rounded, size: 30)),
+          Tab(icon: Icon(Icons.insert_chart, size: 30)),
+          Tab(icon: Icon(Icons.settings, size: 30)),
+        ],
       ),
     );
   }
