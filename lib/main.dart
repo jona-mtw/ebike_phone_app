@@ -34,63 +34,73 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 27, 31, 59),
-      appBar: CustomAppBar(title: "My E-Bike"),
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          backgroundColor: const Color.fromARGB(255, 27, 31, 59),
+          appBar: CustomAppBar(title: "My E-Bike"),
 
-      body: Column(
-        children: [
-          Expanded(
-            flex: 4,
-            child: Container(
-              margin: EdgeInsets.only(top: 25, right: 10, left: 10, bottom: 10),
-              decoration: customDecoration,
-            ),
+          body: Column(
+            children: [
+              Expanded(
+                flex: 4,
+                child: Container(
+                  margin: EdgeInsets.only(
+                    top: 25,
+                    right: 10,
+                    left: 10,
+                    bottom: 10,
+                  ),
+                  decoration: customDecoration,
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: .spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          top: 10,
+                          right: 10,
+                          left: 10,
+                          bottom: 25,
+                        ),
+                        decoration: customDecoration,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          top: 10,
+                          right: 10,
+                          left: 10,
+                          bottom: 25,
+                        ),
+                        decoration: customDecoration,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          top: 10,
+                          right: 10,
+                          left: 10,
+                          bottom: 25,
+                        ),
+                        decoration: customDecoration,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: .spaceEvenly,
-              children: [
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: 10,
-                      right: 10,
-                      left: 10,
-                      bottom: 25,
-                    ),
-                    decoration: customDecoration,
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: 10,
-                      right: 10,
-                      left: 10,
-                      bottom: 25,
-                    ),
-                    decoration: customDecoration,
-                  ),
-                ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: 10,
-                      right: 10,
-                      left: 10,
-                      bottom: 25,
-                    ),
-                    decoration: customDecoration,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+
+          bottomNavigationBar: CustomButtomNavigationBar(),
+        ),
       ),
-
-      bottomNavigationBar: CustomButtomNavigationBar(),
     );
   }
 }
