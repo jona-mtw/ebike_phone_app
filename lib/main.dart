@@ -5,6 +5,14 @@ import 'pages/navigation.dart';
 import 'pages/telemetry.dart';
 import 'pages/settings.dart';
 
+const customDecoration = BoxDecoration(
+  border: Border.fromBorderSide(
+    BorderSide(color: Color.fromARGB(255, 55, 41, 98), width: 7),
+  ),
+  borderRadius: BorderRadius.all(Radius.circular(25)),
+  color: Color.fromARGB(255, 119, 101, 227),
+);
+
 void main() {
   runApp(const MyApp());
 }
@@ -27,32 +35,119 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      backgroundColor: const Color.fromARGB(255, 27, 31, 59),
+      appBar: CustomAppBar(title: "My E-Bike"),
+
+      body: Column(
+        children: [
+          Expanded(
+            flex: 4,
+            child: Container(
+              margin: EdgeInsets.only(top: 25, right: 10, left: 10, bottom: 10),
+              decoration: customDecoration,
+            ),
+          ),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: .spaceEvenly,
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      top: 10,
+                      right: 10,
+                      left: 10,
+                      bottom: 25,
+                    ),
+                    decoration: customDecoration,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      top: 10,
+                      right: 10,
+                      left: 10,
+                      bottom: 25,
+                    ),
+                    decoration: customDecoration,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      top: 10,
+                      right: 10,
+                      left: 10,
+                      bottom: 25,
+                    ),
+                    decoration: customDecoration,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+
+      bottomNavigationBar: CustomButtomNavigationBar(),
+    );
+  }
+}
+
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final String title;
+  final Widget? leading;
+  final List<Widget>? action;
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.leading,
+    this.action,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 27, 31, 59),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(75),
+            blurRadius: 12,
+            offset: Offset(0, 10),
+          ),
+        ],
+      ),
+      child: AppBar(
+        elevation: 0.5,
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
         centerTitle: true,
         title: Text(
-          "My E-Bike",
+          title,
           style: GoogleFonts.kodchasan(
             color: Colors.white,
             fontSize: 30,
             fontWeight: FontWeight.w100,
           ),
         ),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 27, 31, 59),
-          ),
-        ),
       ),
+    );
+  }
 
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(color: const Color.fromARGB(255, 27, 31, 59)),
-          ),
-        ],
-      ),
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
 
-      bottomNavigationBar: Padding(
+class CustomButtomNavigationBar extends StatelessWidget {
+  const CustomButtomNavigationBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 30),
         child: Row(
           mainAxisAlignment: .spaceEvenly,

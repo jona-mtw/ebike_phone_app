@@ -10,54 +10,62 @@ class TelemetryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Telemetry")),
-      body: const Center(child: Text("Telemetry Page")),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(top: 8, bottom: 30),
-        child: Row(
-          mainAxisAlignment: .spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () {
-                Navigator.pop(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
-              },
-              icon: Icon(Icons.home, size: 30),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const NavigationPage(),
-                  ),
-                );
-              },
-              icon: Icon(Icons.navigation_rounded, size: 30),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const TelemetryPage(),
-                  ),
-                );
-              },
-              icon: Icon(Icons.insert_chart, size: 30),
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SettingsPage()),
-                );
-              },
-              icon: Icon(Icons.settings, size: 30),
-            ),
-          ],
+      backgroundColor: const Color.fromARGB(255, 27, 31, 59),
+      appBar: CustomAppBar(title: "Telemetry"),
+      body: const Center(
+        child: Text("Telemetry Page", style: TextStyle(color: Colors.white)),
+      ),
+      bottomNavigationBar: Container(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 30),
+          child: Row(
+            mainAxisAlignment: .spaceEvenly,
+            children: [
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                },
+                icon: Icon(Icons.home, size: 30),
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NavigationPage(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.navigation_rounded, size: 30),
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TelemetryPage(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.insert_chart, size: 30),
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsPage(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.settings, size: 30),
+              ),
+            ],
+          ),
         ),
       ),
     );
