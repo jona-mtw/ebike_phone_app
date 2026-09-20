@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
           body: Column(
             children: [
               Expanded(
-                flex: 4,
+                flex: 2,
                 child: Container(
                   margin: EdgeInsets.only(
                     top: 25,
@@ -69,42 +69,16 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Row(
-                  mainAxisAlignment: .spaceEvenly,
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.75,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
                   children: [
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(
-                          top: 10,
-                          right: 10,
-                          left: 10,
-                          bottom: 25,
-                        ),
-                        decoration: customDecoration,
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(
-                          top: 10,
-                          right: 10,
-                          left: 10,
-                          bottom: 25,
-                        ),
-                        decoration: customDecoration,
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(
-                          top: 10,
-                          right: 10,
-                          left: 10,
-                          bottom: 25,
-                        ),
-                        decoration: customDecoration,
-                      ),
-                    ),
+                    Container(color: Colors.white, margin: EdgeInsets.all(10)),
+                    Container(color: Colors.white, margin: EdgeInsets.all(10)),
+                    Container(color: Colors.white, margin: EdgeInsets.all(10)),
+                    Container(color: Colors.white, margin: EdgeInsets.all(10)),
                   ],
                 ),
               ),
