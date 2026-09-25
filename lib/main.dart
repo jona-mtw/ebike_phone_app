@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'dart:math';
+
 import 'package:google_fonts/google_fonts.dart';
 
 import 'pages/navigation.dart';
@@ -75,10 +78,185 @@ class HomePage extends StatelessWidget {
                   physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   children: [
-                    Container(color: Colors.white, margin: EdgeInsets.all(10)),
-                    Container(color: Colors.white, margin: EdgeInsets.all(10)),
-                    Container(color: Colors.white, margin: EdgeInsets.all(10)),
-                    Container(color: Colors.white, margin: EdgeInsets.all(10)),
+                    Container(
+                      decoration: customDecoration,
+                      margin: EdgeInsets.only(
+                        left: 10,
+                        right: 7.5,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 10,
+                            top: 7,
+                            child: Text(
+                              "Speed",
+                              style: GoogleFonts.kodchasan(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 10,
+                            bottom: 5,
+                            child: Icon(
+                              Icons.speed_rounded,
+                              size: 45,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Positioned(
+                            right: 10,
+                            bottom: 1,
+                            child: Text(
+                              "15mph",
+                              style: GoogleFonts.kodeMono(
+                                fontSize: 35,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      decoration: customDecoration,
+                      margin: EdgeInsets.only(
+                        left: 7.5,
+                        right: 10,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 10,
+                            top: 7,
+                            child: Text(
+                              "Temperature",
+                              style: GoogleFonts.kodchasan(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 10,
+                            bottom: 5,
+                            child: Icon(
+                              Icons.thermostat_rounded,
+                              size: 45,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Positioned(
+                            right: 10,
+                            bottom: -2,
+                            child: Text(
+                              "30°C",
+                              style: GoogleFonts.kodeMono(
+                                fontSize: 40,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      decoration: customDecoration,
+                      margin: EdgeInsets.only(
+                        left: 10,
+                        right: 7.5,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 10,
+                            top: 7,
+                            child: Text(
+                              "Power",
+                              style: GoogleFonts.kodchasan(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 10,
+                            bottom: 5,
+                            child: Icon(
+                              Icons.electric_bolt_rounded,
+                              size: 45,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Positioned(
+                            right: 10,
+                            bottom: -2,
+                            child: Text(
+                              "150W",
+                              style: GoogleFonts.kodeMono(
+                                fontSize: 40,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      decoration: customDecoration,
+                      margin: EdgeInsets.only(
+                        left: 7.5,
+                        right: 10,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 10,
+                            top: 7,
+                            child: Text(
+                              "Battery",
+                              style: GoogleFonts.kodchasan(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 10,
+                            bottom: 2,
+                            child: Transform.rotate(
+                              angle: pi / 2,
+                              child: Icon(
+                                Icons.battery_2_bar_rounded,
+                                size: 45,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            right: 10,
+                            bottom: -5,
+                            child: Text(
+                              "86%",
+                              style: GoogleFonts.kodeMono(
+                                fontSize: 40,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
