@@ -12,50 +12,51 @@ class SettingsPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 27, 31, 59),
       appBar: CustomAppBar(title: "Settings"),
       body: Column(
+        mainAxisAlignment: .start,
         children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-              margin: EdgeInsets.all(5),
-              padding: EdgeInsets.all(5),
-              child: Row(
-                mainAxisAlignment: .end,
-                crossAxisAlignment: .center,
-                children: [
-                  Expanded(
-                    child: Text(
-                      "(pfp)",
-                      style: GoogleFonts.kodchasan(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
+          Container(
+            margin: EdgeInsets.all(20),
+            padding: EdgeInsets.all(5),
+            child: Row(
+              mainAxisAlignment: .end,
+              crossAxisAlignment: .center,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(right: 50),
+                  height: 100,
+                  child: Image(image: AssetImage('assets/pfp.png')),
+                ),
+                Expanded(
+                  flex: 5,
+                  child: Text(
+                    "jona.mtw",
+                    style: GoogleFonts.kodchasan(
+                      color: Colors.white,
+                      fontSize: 25,
                     ),
                   ),
-                  Expanded(
-                    flex: 5,
-                    child: Text(
-                      "jona.mtw",
-                      style: GoogleFonts.kodchasan(
-                        color: Colors.white,
-                        fontSize: 25,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          Expanded(
-            flex: 5,
-            child: Container(
-              decoration: customDecoration,
-              width: 395,
-              padding: EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: .start,
-                children: [
-                  Container(
-                    margin: EdgeInsets.all(10),
+          Container(
+            decoration: customDecoration,
+            width: 395,
+            padding: EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: .start,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(child: GeneralSettings());
+                      },
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
                     child: Text(
                       "GENERAL",
                       style: GoogleFonts.kodchasan(
@@ -64,8 +65,18 @@ class SettingsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(10),
+                ),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(child: BikeSettings());
+                      },
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
                     child: Text(
                       "BIKE",
                       style: GoogleFonts.kodchasan(
@@ -74,8 +85,18 @@ class SettingsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(10),
+                ),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(child: TelemetrySettings());
+                      },
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
                     child: Text(
                       "TELEMETRY",
                       style: GoogleFonts.kodchasan(
@@ -84,8 +105,18 @@ class SettingsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(10),
+                ),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(child: AlertSettings());
+                      },
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
                     child: Text(
                       "ALERTS",
                       style: GoogleFonts.kodchasan(
@@ -94,8 +125,18 @@ class SettingsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(10),
+                ),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(child: ConnectionSettings());
+                      },
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
                     child: Text(
                       "CONNECTION",
                       style: GoogleFonts.kodchasan(
@@ -104,8 +145,22 @@ class SettingsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.all(10),
+                ),
+                TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(
+                          backgroundColor: Color.fromARGB(30, 187, 30, 30),
+                          surfaceTintColor: Colors.transparent,
+                          child: DeveloperSettings(),
+                        );
+                      },
+                    );
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 10, bottom: 10),
                     child: Text(
                       "DEVELOPER",
                       style: GoogleFonts.kodchasan(
@@ -114,12 +169,96 @@ class SettingsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
       ),
     );
+  }
+}
+
+class GeneralSettings extends StatefulWidget {
+  const new({super.key});
+
+  @override
+  State<GeneralSettings> createState() => _GeneralSettingsState();
+}
+
+class _GeneralSettingsState extends State<GeneralSettings> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Column(children: [Text("General Settings")]));
+  }
+}
+
+class BikeSettings extends StatefulWidget {
+  const new({super.key});
+
+  @override
+  State<BikeSettings> createState() => _BikeSettingsState();
+}
+
+class _BikeSettingsState extends State<BikeSettings> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Column(children: [Text("Bike Settings")]));
+  }
+}
+
+class TelemetrySettings extends StatefulWidget {
+  const new({super.key});
+
+  @override
+  State<TelemetrySettings> createState() => _TelemetrySettingsState();
+}
+
+class _TelemetrySettingsState extends State<TelemetrySettings> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Column(children: [Text("Telemetry Settings")]));
+  }
+}
+
+class AlertSettings extends StatefulWidget {
+  const new({super.key});
+
+  @override
+  State<AlertSettings> createState() => _AlertSettingsState();
+}
+
+class _AlertSettingsState extends State<AlertSettings> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Column(children: [Text("Alert Settings")]));
+  }
+}
+
+class ConnectionSettings extends StatefulWidget {
+  const new({super.key});
+
+  @override
+  State<ConnectionSettings> createState() => _ConnectionSettingsState();
+}
+
+class _ConnectionSettingsState extends State<ConnectionSettings> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Column(children: [Text("Connection Settings")]));
+  }
+}
+
+class DeveloperSettings extends StatefulWidget {
+  const new({super.key});
+
+  @override
+  State<DeveloperSettings> createState() => _DeveloperSettingsState();
+}
+
+class _DeveloperSettingsState extends State<DeveloperSettings> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(child: Column(children: [Text("Developer Settings")]));
   }
 }

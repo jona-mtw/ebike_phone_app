@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'dart:math';
 
@@ -10,13 +11,20 @@ import 'pages/settings.dart';
 
 const customDecoration = BoxDecoration(
   border: Border.fromBorderSide(
-    BorderSide(color: Color.fromARGB(255, 55, 41, 98), width: 7),
+    BorderSide(color: Color.fromARGB(255, 55, 41, 98), width: 3),
   ),
   borderRadius: BorderRadius.all(Radius.circular(25)),
   color: Color.fromARGB(255, 119, 101, 227),
 );
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   runApp(const MyApp());
 }
 
@@ -51,6 +59,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 4,
         child: Scaffold(
